@@ -849,7 +849,6 @@ static inline void clk_bulk_disable_unprepare(int num_clks,
 	clk_bulk_unprepare(num_clks, clks);
 }
 
-#if defined(CONFIG_OF)
 /**
  * clk_get_optional - lookup and obtain a reference to an optional clock
  *		      producer.
