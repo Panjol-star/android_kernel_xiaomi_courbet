@@ -536,9 +536,7 @@ static ssize_t sel_write_load(struct file *file, const char __user *buf,
 	ssize_t length;
 	void *data = NULL;
 
-<<<<<<< HEAD
 	mutex_lock(&fsi->mutex);
-=======
 	/* no partial writes */
 	if (*ppos)
 		return -EINVAL;
@@ -549,8 +547,6 @@ static ssize_t sel_write_load(struct file *file, const char __user *buf,
 	if (count > 64 * 1024 * 1024)
 		return -EFBIG;
 
-	mutex_lock(&sel_mutex);
->>>>>>> v4.14.356-openela
 
 	length = avc_has_perm(&selinux_state,
 			      current_sid(), SECINITSID_SECURITY,
