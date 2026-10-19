@@ -35,7 +35,11 @@ fi
 
 echo -e "\nStarting compilation for $DEVICE...\n"
 
-make O=out ARCH=arm64 ${DEVICE}_defconfig
+mkdir -p out
+ARCH=arm64 scripts/kconfig/merge_config.sh -O out \
+    arch/arm64/configs/vendor/sdmsteppe-perf_defconfig \
+    arch/arm64/configs/${DEVICE}_defconfig
+
 make -j$(nproc) \
     O=out \
     ARCH=arm64 \
