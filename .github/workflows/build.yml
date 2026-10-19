@@ -50,7 +50,13 @@ jobs:
         run: |
           chmod +x build.sh
           ./build.sh
-
+      
+      - name: Upload Kernel Config Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: config-${{ github.event.inputs.device }}
+          path: out/.config
+          
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
